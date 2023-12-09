@@ -50,10 +50,10 @@ def test_find_suitable_user():
     ]
 
     # TODO найдите пользователя с именем "Olga"
-    suitable_users = next((person for person in users if person["name"] == "Olga"))
-    # for user in users:
-    #     # if user["name"] == "Olga":
-    #         # suitable_users = user
+    suitable_users = None
+    for user in users:
+        if user["name"] == "Olga":
+            suitable_users = user
     assert suitable_users == {"name": "Olga", "age": 45}
 
     # # TODO найдите всех пользователей младше 20 лет
@@ -78,6 +78,7 @@ def test_find_suitable_user():
 def readable_function(func, **kwargs):
     readable_name = func.__name__.replace("_", " ").title()
     readable_args = ", ".join([f"{value}" for key, value in kwargs.items()])
+    print(f"{readable_name} [{readable_args}]")
     return f"{readable_name} [{readable_args}]"
 
 
